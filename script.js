@@ -7,9 +7,9 @@ const {
 
 var port = process.env.PORT || 8000
 
-const {
-  DATABASE_URL
-} = process.env
+// const {
+//   DATABASE_URL
+// } = process.env
 
 var client = new Client({
   connectionString: process.env.HEROKU_POSTGRESQL_PURPLE_URL || process.env.DATABASE_URL,
@@ -42,6 +42,6 @@ app.post('/post', function(req, res) {
 
 
 
-app.listen(8000, function() {
+app.listen(port, function() {
   console.log("Web Server Started at port 8000")
 })

@@ -7,8 +7,13 @@ const {
 
 var port = process.env.PORT || 8000
 
+const {
+  DATABASE_URL
+} = process.env
+
 var client = new Client({
-  database: 'DWD_HW3'
+  connectionString: process.env.HEROKU_POSTGRESQL_PURPLE_URL || process.env.DATABASE_URL,
+  ssl: true
 })
 
 client.connect()

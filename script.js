@@ -17,6 +17,9 @@ var client = new Client({
 })
 
 client.connect()
+// .then(() => console.log('connect'))
+// .catch(e => console.error('connection error', err.stack))
+
 
 var app = express()
 
@@ -36,8 +39,16 @@ app.get('/', function(req, res) {
 
 app.post('/post', function(req, res) {
 
-  res.send()
-  res.end()
+  const title = req.body.title
+  const intro = req.body.content
+
+  //
+  // var sql = "INSERT INTO customers (Title, Introduction) VALUES" + "(" + title + "," + intro + ")"
+  // client.query(sql, (err, result) => {
+  //   if (err) throw err
+  //   console.log(ressult)
+  res.send(hell world)
+  // })
 })
 
 

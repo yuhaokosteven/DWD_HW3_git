@@ -7,7 +7,9 @@ const {
 
 var port = process.env.PORT || 8000
 
-var client = new Client()
+var client = new Client({
+  database: 'DWD_HW3'
+})
 
 client.connect()
 

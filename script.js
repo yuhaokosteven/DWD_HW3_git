@@ -13,7 +13,7 @@ var port = process.env.PORT || 8000
 
 var client = new Client({
   connectionString: process.env.HEROKU_POSTGRESQL_PURPLE_URL || process.env.DATABASE_URL,
-  ssl: true
+  ssl: !!process.env.HEROKU_POSTGRESQL_PURPLE_URL
 })
 
 client.connect()
@@ -33,6 +33,13 @@ app.set('view engine', 'html')
 app.set('views', __dirname)
 
 
+app.get('/all', function(req, res) {
+  client.query(`SELECT * FROM posts`, (err, result) => {
+    res.json(result)
+    res.end()
+  })
+})
+
 app.get('/', function(req, res) {
   res.render('index')
 })
@@ -47,7 +54,8 @@ app.post('/post', function(req, res) {
   // client.query(sql, (err, result) => {
   //   if (err) throw err
   //   console.log(ressult)
-  res.send(hell world)
+  res.send('Your data is saved!')
+  res.end()
   // })
 })
 

@@ -6,10 +6,7 @@ const {
 } = require('pg')
 
 var port = process.env.PORT || 8000
-
-// const {
-//   DATABASE_URL
-// } = process.env
+// console.log(process.env)
 
 var client = new Client({
   connectionString: process.env.HEROKU_POSTGRESQL_PURPLE_URL || process.env.DATABASE_URL,
@@ -41,28 +38,40 @@ app.set('views', __dirname)
 // })
 
 app.get('/', function(req, res) {
-  res.render('index')
+  client.query(`SELECT * FROM posts`, (err, result) => {
+    // console.log(result)
+    // res.send('Your data is saved!')
+    if (err) throw err
+    for (let row of result.rows) {
+      console.log(JSON.stringify(row))
+    }
+    let messagesArray = result.rows
+    res.render('index', {
+      messageArray:
+    })
+  })
 })
 
 app.post('/post', function(req, res) {
 
-  const title = req.body.title
+  // const title = req.body.title
   const intro = req.body.content
-
-
-  // var sql = "INSERT INTO customers (Title, Introduction) VALUES" + "(" + title + "," + intro + ")"
-  // client.query(sql, (err, result) => {
-  //   if (err) throw err
-  //   console.log(ressult)
-  client.query(`SELECT * FROM posts`, (err, result) => {
-    console.log(result)
-    res.send('Your data is saved!')
-    res.end()
-  })
-  // })
+  if (intro === undefined) {
+    res.sendFile(path.join(__dirname + 'index.html'))
+  } else {
+    client.query('INSERT INTO posts (message) VALUES ($1)', [myText], function(err, result) {
+      if (err) throw err
+      result.redirect('/')
+    })
+  }
 })
 
-
+// var sql = "INSERT INTO customers (Title, Introduction) VALUES" + "(" + title + "," + intro + ")"
+// client.query(sql, (err, result) => {
+//   if (err) throw err
+//   console.log(ressult)
+// })
+// })
 
 app.listen(port, function() {
   console.log("Web Server Started at port 8000")

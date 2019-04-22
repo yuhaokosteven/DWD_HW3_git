@@ -56,13 +56,13 @@ app.get('/', function(req, res) {
 app.post('/post', function(req, res) {
 
   // const title = req.body.title
-  const intro = req.body.content
+  var intro = req.body.content
   if (intro === undefined) {
     res.sendFile(path.join(__dirname + 'index.html'))
   } else {
     client.query('INSERT INTO posts (message) VALUES ($1)', [intro], function(err, result) {
       if (err) throw err
-      result.redirect('/')
+      res.redirect('/')
     })
   }
 })

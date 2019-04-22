@@ -33,12 +33,12 @@ app.set('view engine', 'html')
 app.set('views', __dirname)
 
 
-app.get('/all', function(req, res) {
-  client.query(`SELECT * FROM posts`, (err, result) => {
-    res.json(result)
-    res.end()
-  })
-})
+// app.get('/all', function(req, res) {
+//   client.query(`SELECT * FROM posts`, (err, result) => {
+//     res.json(result)
+//     res.end()
+//   })
+// })
 
 app.get('/', function(req, res) {
   res.render('index')
@@ -54,8 +54,10 @@ app.post('/post', function(req, res) {
   // client.query(sql, (err, result) => {
   //   if (err) throw err
   //   console.log(ressult)
-  res.send('Your data is saved!')
-  res.end()
+  client.query(`SELECT * FROM posts`, (err, result) => {
+    res.send('Your data is saved!')
+    res.end()
+  })
   // })
 })
 

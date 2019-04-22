@@ -4,6 +4,7 @@ var bodyParser = require('body-parser')
 const {
   Client
 } = require('pg')
+const path = require('path')
 
 var port = process.env.PORT || 8000
 // console.log(process.env)
@@ -47,7 +48,7 @@ app.get('/', function(req, res) {
     }
     let messagesArray = result.rows
     res.render('index', {
-      messageArray:
+      messagesArray
     })
   })
 })
@@ -59,7 +60,7 @@ app.post('/post', function(req, res) {
   if (intro === undefined) {
     res.sendFile(path.join(__dirname + 'index.html'))
   } else {
-    client.query('INSERT INTO posts (message) VALUES ($1)', [myText], function(err, result) {
+    client.query('INSERT INTO posts (message) VALUES ($1)', [intro], function(err, result) {
       if (err) throw err
       result.redirect('/')
     })

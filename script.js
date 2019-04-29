@@ -40,6 +40,7 @@ app.set('views', __dirname)
 
 app.get('/', function(req, res) {
   client.query(`SELECT * FROM posts`, (err, result) => {
+    // client.query(`SELECT * FROM posts ORDER BY id`, function(err, result)){ //for multiple inputs
     // console.log(result)
     // res.send('Your data is saved!')
     if (err) throw err
@@ -53,6 +54,8 @@ app.get('/', function(req, res) {
   })
 })
 
+const insertQuery = `INSERT INTO whatever (title, introduction) VALUES ($1, $2)`
+
 app.post('/post', function(req, res) {
 
   // const title = req.body.title
@@ -61,6 +64,7 @@ app.post('/post', function(req, res) {
     res.sendFile(path.join(__dirname + 'index.html'))
   } else {
     client.query('INSERT INTO posts (message) VALUES ($1)', [intro], function(err, result) {
+      // client.query(insertQuery, [req.body.title, req.body.introduction], function(err, result) { // for multiple inputs
       if (err) throw err
       res.redirect('/')
     })

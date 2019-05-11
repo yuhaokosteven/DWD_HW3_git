@@ -54,7 +54,7 @@ app.get('/', function(req, res) {
   })
 })
 
-const insertQuery = `INSERT INTO whatever (title, introduction) VALUES ($1, $2)`
+// const insertQuery = `INSERT INTO whatever (title, introduction) VALUES ($1, $2)`
 
 app.post('/post', function(req, res) {
 

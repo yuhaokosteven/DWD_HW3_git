@@ -71,7 +71,7 @@ div.container .content{
 div.container .submitBut{
   position: absolute;
   text-align: center;
-  top:105%;
+  top:110%;
 
 }
 
@@ -119,10 +119,9 @@ div.story p{
 
   <img src="/img/bg.png" style="width:100%">
   <form method=" POST" action="/post">
-
     <div class="container">
       <div class="content">
-        <textarea name="content" rows="8" cols="40"></textarea><br>
+        <textarea name="content" rows="8" cols="40"></textarea>
       </div>
 
       <div class="submitBut">
@@ -135,7 +134,7 @@ div.story p{
       <div class="story">
         <h2>Stories</h2>
         {{#messagesArray}}
-          <p>{{message}}</p><br><br><br>
+          {message}}<br><br><br>
         {{/messagesArray}}
       </div>
     </div>

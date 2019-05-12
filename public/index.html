@@ -17,6 +17,14 @@
     z-index: 2;
     color: white;
   } */
+  body{
+    background-color: black;
+
+  }
+
+  * {
+  box-sizing: border-box;
+}
   img{
     position: absolute;
     z-index: -1;
@@ -50,7 +58,8 @@
 
 .container{
   display: flex;
- justify-content: center;
+  justify-content: center;
+  width:100%;
 }
 
 div.container .content{
@@ -63,6 +72,24 @@ div.container .submitBut{
   position: absolute;
   text-align: center;
   top:105%;
+
+}
+
+.allStories{
+  position:absolute;;
+  width:100%;
+  height:100%;
+  top:140%;
+}
+
+h2{
+  color:white;
+  text-align: center;
+}
+
+div.story p{
+  text-align: center;
+  color:white;
 }
 
 
@@ -103,10 +130,15 @@ div.container .submitBut{
       </div>
     </div>
 
-    {{#messagesArray}}
-      <h3>INTRODUCTION</h3>
-      {{message}}<br><br><br>
-    {{/messagesArray}}
+
+    <div class="allStories">
+      <div class="story">
+        <h2>Stories</h2>
+        {{#messagesArray}}
+          <p>{{message}}</p><br><br><br>
+        {{/messagesArray}}
+      </div>
+    </div>
   </form>
 
   </div>

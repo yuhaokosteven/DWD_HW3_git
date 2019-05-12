@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Share your depression about depression</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<head></head>
+
+<style>
+  /* h1 {
+    position: absolute;
+    margin-left: 50%;
+    text-align: center;
+    z-index: 2;
+    color: white;
+  } */
+  img{
+    position: absolute;
+    z-index: -1;
+  }
+  /* textarea {
+    background: url(images/benice.png) center center no-repeat; /* This ruins default border */
+    /* border: 1px solid #888; */
+  /* }  */
+
+  input[type=submit] {
+    /* position: absolute; */
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    /* margin: 460.5px 615px; */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* @media only screen and (max-width:800px){
+  .container .content .submitBut{
+    width:100%;
+  }
+} */
+
+.container{
+  display: flex;
+ justify-content: center;
+}
+
+div.container .content{
+  position: absolute;
+  text-align: center;
+  top:85%;
+}
+
+div.container .submitBut{
+  position: absolute;
+  text-align: center;
+  top:105%;
+}
+
+
+</style>
+
+<body>
+  <!-- <form method="get" action=""> -->
+  <!-- <h1>Hello {{tempate_name}}</h1> -->
+  <!-- <h1>Hello User!</h1> -->
+
+  <!-- <p> -->
+  <!-- Enter your favorite brand: -->
+  <!-- <input type="text" name="input_name"> -->
+  <!-- </p> -->
+
+  <!-- <input type="submit"> -->
+
+  <!-- </form> -->
+
+  <!-- {{#messagesArray}}
+    {{message}}
+  {{/messagesArray}} -->
+
+  <!-- <audio src="/img/sad.mp3" controls> -->
+  <embed src="/img/sad.mp3" autostart="true" loop="false" hidden="true">
+  <!-- </audio> -->
+
+  <img src="/img/bg.png" style="width:100%">
+  <form method=" POST" action="/post">
+
+    <div class="container">
+      <div class="content">
+        <textarea name="content" rows="8" cols="40"></textarea><br>
+      </div>
+
+      <div class="submitBut">
+        <input type="submit" />
+      </div>
+    </div>
+
+    {{#messagesArray}}
+      <h3>INTRODUCTION</h3>
+      {{message}}<br><br><br>
+    {{/messagesArray}}
+  </form>
+
+  </div>
+
+</body>
+
+</html>

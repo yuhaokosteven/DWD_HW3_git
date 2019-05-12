@@ -118,6 +118,7 @@ div.story p{
   <!-- </audio> -->
 
   <img src="/img/bg.png" style="width:100%">
+  <img src="https://static.wixstatic.com/media/afddb3_150120f2dc51436690580abbd5a62d70~mv2_d_2396_1794_s_2.png" alt="bg" style="width:100%">
   <form method=" POST" action="/post">
     <div class="container">
       <div class="content">
@@ -133,9 +134,9 @@ div.story p{
     <div class="allStories">
       <div class="story">
         <h2>Stories</h2>
-        {{#messagesArray}}
-          {message}}<br><br><br>
-        {{/messagesArray}}
+        {{#storyArray}}
+          <p> {{message}}</p><br><br><br>
+        {{/storyArray}}
       </div>
     </div>
   </form>

@@ -30,7 +30,7 @@ app.engine('html', mustacheExpress())
 app.set('view engine', 'html')
 app.set('views', __dirname)
 
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static('public'));
 
 
@@ -54,9 +54,11 @@ app.get('/', function(req, res) {
     for (let row of result.rows) {
       console.log(JSON.stringify(row))
     }
-    let messagesArray = result.rows
+    // let messagesArray = result.rows
+    let storyArray = result.rows
+
     res.render('index', {
-      messagesArray
+      storyArray
     })
   })
 })

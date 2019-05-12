@@ -30,6 +30,8 @@ app.engine('html', mustacheExpress())
 app.set('view engine', 'html')
 app.set('views', __dirname)
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 // app.get('/all', function(req, res) {
 //   client.query(`SELECT * FROM posts`, (err, result) => {
@@ -39,6 +41,9 @@ app.set('views', __dirname)
 // })
 
 app.get('/', function(req, res) {
+
+  // res.sendFile(path.join(__dirname + '/index.html'))
+
   client.query(`SELECT * FROM posts`, (err, result) => {
     // client.query(`SELECT * FROM posts ORDER BY id`, function(err, result)){ //for multiple inputs
     // console.log(result)
@@ -78,6 +83,6 @@ app.post('/post', function(req, res) {
 // })
 // })
 
-app.listen(port, function() {
+app.listen(8000, function() {
   console.log("Web Server Started at port 8000")
 })

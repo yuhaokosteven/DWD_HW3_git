@@ -65,7 +65,8 @@
 div.container .content{
   position: absolute;
   text-align: center;
-  top:80%;
+  top:82%;
+
 }
 
 div.container .submitBut{
@@ -114,7 +115,7 @@ div.story p{
   {{/messagesArray}} -->
 
   <!-- <audio src="/img/sad.mp3" controls> -->
-  <embed src="/img/sad.mp3" autostart="true" loop="false" hidden="true">
+  <embed src="/img/sad.mp3" autostart="true" loop="false" hidden="true" type="audio/mpeg">
   <!-- </audio> -->
 
   <img src="/img/bg.png" style="width:100%">
@@ -122,7 +123,7 @@ div.story p{
   <form method="POST" action="/post">
     <div class="container">
       <div class="content">
-        <textarea name="content" rows="8" cols="40"></textarea>
+        <textarea name="content" rows="8" cols="40" placeholder="Tell your story.."></textarea>
       </div>
 
       <div class="submitBut">

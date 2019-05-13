@@ -10,8 +10,8 @@ var port = process.env.PORT || 8000
 // console.log(process.env)
 
 var client = new Client({
-  connectionString: process.env.HEROKU_POSTGRESQL_NAVY_URL || process.env.DATABASE_URL,
-  ssl: !!process.env.HEROKU_POSTGRESQL_NAVY_URL
+  connectionString: process.env.HEROKU_POSTGRESQL_BROWN_URL || process.env.DATABASE_URL,
+  ssl: !!process.env.HEROKU_POSTGRESQL_BROWN_URL
 })
 
 // var client = new Client({
